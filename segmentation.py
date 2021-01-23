@@ -34,7 +34,17 @@ new_image = cv2.bitwise_and(img,img,mask=mask)
 (bottomx, bottomy) = (np.max(x), np.max(y))
 Cropped = gray[topx:bottomx+1, topy:bottomy+1]
 
+#text = pytesseract.image_to_string(Cropped, config='--psm 11')
+#print ("License Plate Recognition\n")
+#print("Detecting Licencse Plate No:", text)
+#img = cv2.resize(img,(500,300))
+#Cropped = cv2.resize(Cropped,(400,200))
+
 cv2.imshow('car',img)
+cv2.imshow('grey', gray)
+cv2.imshow('edged', edged)
+cv2.imshow('mask',mask)
+cv2.imshow('new',new_image)
 cv2.imshow('Cropped',Cropped)
 
 cv2.waitKey(0)
